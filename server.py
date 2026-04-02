@@ -194,21 +194,25 @@ async def remove_from_wishlist(item_id: str):
 @api_router.get("/products")
 async def get_products():
     try:
+        print("Trying to fetch products from DB:", db.name)
         products = await db.products.find({}, {"_id": 0}).to_list(1000)
+        print("Fetched products count:", len(products))
         return products
     except Exception as e:
+        print("ERROR IN /products:", str(e))
         raise HTTPException(status_code=500, detail=str(e))
     
 
-    @api_router.get("/test-db")
-    async def test_db():
-      try:
+@api_router.get("/test-db")
+async def test_db():
+    try:
         collections = await db.list_collection_names()
         return {
             "db_name": db.name,
             "collections": collections
         }
-      except Exception as e:
+    except Exception as e:
+        print("ERROR IN /test-db:", str(e))
         raise HTTPException(status_code=500, detail=str(e))
 
 
