@@ -12,7 +12,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // Base URL for the API(FASTAPI)
-const API = 'process.env.REACT_APP_API';
+const API = process.env.REACT_APP_API;
 
 /**
  * Async thunk to fetch all products from the Fake Store API.
