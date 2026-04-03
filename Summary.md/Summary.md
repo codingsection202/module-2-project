@@ -75,5 +75,5 @@ NexaStore is a fully functional, deployed e-commerce application that demonstrat
 ### Links
 
 - **GitHub Repository**:[https://github.com/codingsection202/module-2-project]
-- **Live Website**: [https://dancing-pie-668af9.netlify.app]
+- **Live Website**: [https://nexashopecommerce.netlify.app/]
 - **Backend API**: [https://module-2-project-1.onrender.com]
