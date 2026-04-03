@@ -14,6 +14,9 @@ import axios from 'axios';
 // Base URL for the API(FASTAPI)
 const API = process.env.REACT_APP_API;
 
+
+console.log("API URL:", process.env.REACT_APP_API);
+
 /**
  * Async thunk to fetch all products from the Fake Store API.
  * Returns an array of product objects with id, title, price, image, etc.
