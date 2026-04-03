@@ -33,20 +33,24 @@ const ProductDetail = () => {
 
   const isInCart = cartItems.some(item => item.id === product?.id);
   const isInWishlist = wishlistItems.some(item => item.id === product?.id);
+  const API = process.env.REACT_APP_API;
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(`http://127.0.0.1:8001/api/products/${id}`);
-        setProduct(response.data);
-      } catch (error) {
-        console.error('Error fetching product:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchProduct = async () => {
+    try {
+      const response = await axios.get(`${API}/products/${id}`);
+      setProduct(response.data);
+    } catch (error) {
+      console.error('Error fetching product:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (API) {
     fetchProduct();
-  }, [id]);
+  }
+}, [id, API]);
 
   const handleAddToCart = () => {
     if (!isInCart && product) {
